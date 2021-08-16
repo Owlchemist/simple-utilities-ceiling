@@ -1,0 +1,192 @@
+<Defs>
+	<DesignatorDropdownGroupDef>
+		<defName>CeilingFixtures</defName> 
+	</DesignatorDropdownGroupDef>
+	
+	<DesignatorDropdownGroupDef>
+		<defName>FirefoamPoppers</defName> 
+	</DesignatorDropdownGroupDef>
+	
+	<ThingDef Name="CeilingLightBase" ParentName="StandingLampBase" Abstract="True">
+		<passability>Standable</passability>
+		<clearBuildingArea>false</clearBuildingArea>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<costList>
+			<Steel>20</Steel>
+		</costList>
+		<statBases>
+			<Mass>4</Mass>
+			<WorkToBuild>600</WorkToBuild>
+		</statBases>
+		<fillPercent>0</fillPercent>
+		<building>
+			<isEdifice>false</isEdifice>
+			<isInert>true</isInert>
+            <ai_chillDestination>false</ai_chillDestination>
+		</building>
+		<drawerType>RealtimeOnly</drawerType>
+		<minifiedDef />
+		<thingCategories Inherit="False" />
+		<designatorDropdown>CeilingFixtures</designatorDropdown>
+		<placeWorkers>
+			<li>CeilingUtilities.PlaceWorker_OnlyUnderRoof</li>
+		</placeWorkers>
+		<comps Inherit="False">
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>30</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Styleable" />
+			<li Class="CompProperties_Flickable"/>
+		</comps>
+		<pathCost />
+	</ThingDef>
+	
+	<ThingDef ParentName="CeilingLightBase">
+		<defName>Owl_CeilingLight</defName>
+		<label>ceiling light</label>
+		<description>An electrical standing lamp that lights an area. People need light to move and work at full speed.</description>
+		<graphicData>
+			<texPath>Things/Building/Furniture/CeilingLight</texPath>
+			<color>(1,1,1,0.35)</color>
+            <shaderType>Transparent</shaderType>
+		</graphicData>
+		<comps>
+			<li Class="VanillaFurnitureExpanded.CompProperties_RandomBuildingGraphic">
+				<randomGraphics>
+					<li>Things/Building/Furniture/CeilingLight</li>
+					<li>Things/Building/Furniture/Techist_CeilingLight</li>
+					<li>Things/Building/Furniture/Square_CeilingLight</li>
+				</randomGraphics>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>12</glowRadius>
+				<glowColor>(217,217,208,0)</glowColor>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="CeilingLightBase">
+		<defName>Owl_LongCeilingLight</defName>
+		<label>long ceiling light</label>
+		<description>An electrical standing lamp that lights an area. People need light to move and work at full speed.</description>
+		<graphicData>
+			<texPath>Things/Building/Furniture/Double_CeilingLight</texPath>
+			<color>(1,1,1,0.35)</color>
+            <shaderType>Transparent</shaderType>
+			<drawSize>(2,1)</drawSize>
+		</graphicData>
+		<costList>
+			<Steel>40</Steel>
+		</costList>
+		<statBases>
+			<Mass>8</Mass>
+			<WorkToBuild>1200</WorkToBuild>
+		</statBases>
+		<comps Inherit="False">
+			<li Class="VanillaFurnitureExpanded.CompProperties_RandomBuildingGraphic">
+				<randomGraphics>
+					<li>Things/Building/Furniture/Double_CeilingLight</li>
+					<li>Things/Building/Furniture/Techist_Double_CeilingLight</li>
+					<li>Things/Building/Furniture/Twin_CeilingLight</li>
+				</randomGraphics>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>18</glowRadius>
+				<glowColor>(217,217,208,0)</glowColor>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>40</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+		</comps>
+		<size>(2,1)</size>
+		<rotatable>true</rotatable>
+	</ThingDef>
+	
+	<ThingDef ParentName="FirefoamPopperBase">
+		<defName>Owl_CeilingFirefoamPopper</defName>
+		<label>ceiling firefoam popper</label>
+		<graphicData>
+			<texPath>Things/Building/Misc/CeilingFirefoamPopper</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<color>(1,1,1,0.25)</color>
+            <shaderType>Transparent</shaderType>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<minifiedDef />
+		<statBases>
+			<WorkToBuild>2500</WorkToBuild>
+		</statBases>
+		<pathCost />
+		<passability>Standable</passability>
+		<thingCategories Inherit="False" />
+		<building>
+			<isEdifice>false</isEdifice>
+			<isInert>true</isInert>
+            <ai_chillDestination>false</ai_chillDestination>
+		</building>
+		<placeWorkers>
+			<li>CeilingUtilities.PlaceWorker_OnlyUnderRoof</li>
+		</placeWorkers>
+		<clearBuildingArea>false</clearBuildingArea>
+		<drawerType>RealtimeOnly</drawerType>
+	</ThingDef>
+	
+	<ThingDef ParentName="SunLampBase">
+		<defName>Owl_CeilingSunLamp</defName>
+		<label>ceiling sun lamp</label>
+		<graphicData>
+			<texPath>Things/Building/Production/CeilingSunLamp</texPath>
+			<color>(1,1,1,0.5)</color>
+			<shaderType>Transparent</shaderType>
+		</graphicData>
+		<statBases>
+			<WorkToBuild>700</WorkToBuild>
+		</statBases>
+		<comps Inherit="False">
+			<li Class="VanillaFurnitureExpanded.CompProperties_RandomBuildingGraphic">
+				<randomGraphics>
+					<li>Things/Building/Production/CeilingSunLamp</li>
+					<li>Things/Building/Production/Square_CeilingSunLamp</li>
+				</randomGraphics>
+			</li>
+			<li Class="CompProperties_Glower">
+				<overlightRadius>7.0</overlightRadius>
+				<glowRadius>14</glowRadius>
+				<glowColor>(370,370,370,0)</glowColor>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>2900</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Schedule">
+				<startTime>0.25</startTime>
+				<endTime>0.8</endTime>
+				<offMessage>Off for plant resting period</offMessage>
+			</li>
+			<li Class="CompProperties_HeatPusher">
+				<compClass>CompHeatPusherPowered</compClass>
+				<heatPerSecond>3</heatPerSecond>
+			</li>
+		</comps>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<pathCost />
+		<minifiedDef />
+		<thingCategories Inherit="False" />
+		<building>
+			<isEdifice>false</isEdifice>
+			<isInert>true</isInert>
+			<ai_chillDestination>false</ai_chillDestination>
+		</building>
+		<designatorDropdown>CeilingFixtures</designatorDropdown>
+		<drawerType>RealtimeOnly</drawerType>
+		<passability>Standable</passability>
+		<placeWorkers>
+			<li>CeilingUtilities.PlaceWorker_OnlyUnderRoof</li>
+		</placeWorkers>
+		<clearBuildingArea>false</clearBuildingArea>
+	</ThingDef>
+</Defs>

@@ -1,0 +1,23 @@
+<Defs>
+	<ThingDef ParentName="CeilingLightBase" >
+		<defName>Owl_DarkCeilingLight</defName>
+		<label>dark ceiling light</label>
+		<description>A low-powered electrical standing lamp that emits a dim light over a large area. People who prefer to work in darklight are happy with this light source.</description>
+		<graphicData>
+			<texPath>Things/Building/Furniture/DarkCeilingLight</texPath>
+			<color>(1,1,1,0.5)</color>
+		</graphicData>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>9</glowRadius>
+				<glowColor>(78, 226, 229, 0)</glowColor><!-- This is a specific darklight color, make sure it matches DarklightUtility.IsDarklight -->
+			</li>
+			<li Class="VanillaFurnitureExpanded.CompProperties_RandomBuildingGraphic">
+				<randomGraphics>
+					<li>Things/Building/Furniture/DarkCeilingLight</li>
+					<li>Things/Building/Furniture/Techist_DarkCeilingLight</li>
+				</randomGraphics>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>
