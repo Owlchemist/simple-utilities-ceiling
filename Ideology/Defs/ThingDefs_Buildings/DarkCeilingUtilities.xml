@@ -12,7 +12,7 @@
 				<glowRadius>9</glowRadius>
 				<glowColor>(78, 226, 229, 0)</glowColor><!-- This is a specific darklight color, make sure it matches DarklightUtility.IsDarklight -->
 			</li>
-			<li Class="VanillaFurnitureExpanded.CompProperties_RandomBuildingGraphic">
+			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VanillaFurnitureExpanded.CompProperties_RandomBuildingGraphic">
 				<randomGraphics>
 					<li>Things/Building/Furniture/DarkCeilingLight</li>
 					<li>Things/Building/Furniture/Techist_DarkCeilingLight</li>

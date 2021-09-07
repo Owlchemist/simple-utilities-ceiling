@@ -3,5 +3,6 @@
 	<v1.3>
 		<li>Content</li>
 		<li IfModActive="Ludeon.RimWorld.Ideology">Ideology</li>
+		<li IfModActive="Ludeon.RimWorld.Royalty">Royalty</li>
 	</v1.3>
 </loadFolders>

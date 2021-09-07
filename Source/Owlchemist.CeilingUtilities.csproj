@@ -34,10 +34,22 @@
       <HintPath>..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\packages\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompCeilingFixture.cs" />
+    <Compile Include="MapCompont_CeilingUtilities.cs" />
+    <Compile Include="Mod_CeilingUtilities.cs" />
+    <Compile Include="Patch_DoPlaySettingsGlobalControls.cs" />
     <Compile Include="WorkPlace_OnlyUnderRoof.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
