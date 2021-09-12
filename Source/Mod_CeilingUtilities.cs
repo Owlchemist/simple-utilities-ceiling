@@ -1,5 +1,6 @@
 using HarmonyLib;
 using Verse;
+using System.Collections.Generic;
 
 namespace CeilingUtilities
 {
@@ -9,5 +10,7 @@ namespace CeilingUtilities
 		{
 			new Harmony(this.Content.PackageIdPlayerFacing).PatchAll();
 		}
+
+		public static List<ThingDef> ceilingFixtures = new List<ThingDef>();
     }
 }

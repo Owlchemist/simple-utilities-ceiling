@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAttributeSet">
+				<xpath>Defs/ThingDef[defName="FirefoamPopper"]</xpath>
+				<attribute>Name</attribute>
+				<value>FirefoamPopperBase</value>
+			</li>
+			<li Class="PatchOperationAttributeSet">
+				<xpath>Defs/ThingDef[defName="SunLamp"]</xpath>
+				<attribute>Name</attribute>
+				<value>SunLampBase</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<success>Always</success>
+				<xpath>Defs/ThingDef[defName="FirefoamPopper" and not(designatorDropdown)]</xpath>
+				<value>
+					<designatorDropdown>FirefoamPoppers</designatorDropdown>
+				</value>
+			</li>
+			<!-- Royalty -->
+			<li MayRequire="ludeon.rimworld.royalty" Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="Gloomlight"]/minifiedDef</xpath>
+				<value>
+					<minifiedDef>Owl_GloomlightMinified</minifiedDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

@@ -46,10 +46,10 @@
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompCeilingFixture.cs" />
-    <Compile Include="MapCompont_CeilingUtilities.cs" />
+    <Compile Include="DefModExtension_CeilingFixtures.cs" />
     <Compile Include="Mod_CeilingUtilities.cs" />
     <Compile Include="Patch_DoPlaySettingsGlobalControls.cs" />
+    <Compile Include="Patch_PrintWirePieceConnecting.cs" />
     <Compile Include="WorkPlace_OnlyUnderRoof.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

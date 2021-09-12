@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <loadFolders>
 	<v1.3>
-		<li>Content</li>
-		<li IfModActive="Ludeon.RimWorld.Ideology">Ideology</li>
-		<li IfModActive="Ludeon.RimWorld.Royalty">Royalty</li>
+		<li>/</li>
+		<li IfModActive="Ludeon.RimWorld.Ideology">DLC/Ideology</li>
+		<li IfModActive="Ludeon.RimWorld.Royalty">DLC/Royalty</li>
 	</v1.3>
 </loadFolders>
