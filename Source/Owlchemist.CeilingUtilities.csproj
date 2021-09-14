@@ -15,7 +15,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\Content\Assemblies</OutputPath>
+    <OutputPath>..\Assemblies</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -23,7 +23,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
-    <OutputPath>..\Content\Assemblies</OutputPath>
+    <OutputPath>..\..\..\Mods\Simple Utilities Ceiling\Assemblies</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -46,7 +46,9 @@
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompFireOverlayMulti.cs" />
     <Compile Include="DefModExtension_CeilingFixtures.cs" />
+    <Compile Include="Graphic_FlickerMulti.cs" />
     <Compile Include="Mod_CeilingUtilities.cs" />
     <Compile Include="Patch_DoPlaySettingsGlobalControls.cs" />
     <Compile Include="Patch_PrintWirePieceConnecting.cs" />

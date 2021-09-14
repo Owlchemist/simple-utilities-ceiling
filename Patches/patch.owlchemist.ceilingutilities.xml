@@ -26,6 +26,12 @@
 					<minifiedDef>Owl_GloomlightMinified</minifiedDef>
 				</value>
 			</li>
+			<li MayRequire="ludeon.rimworld.royalty" Class="PatchOperationAdd">
+				<xpath>Defs/RoyalTitleDef/throneRoomRequirements//things[li[text()="Brazier"]]</xpath>
+				<value>
+					<li>Owl_Chandelier</li>
+				</value>
+			</li>
 		</operations>
 	</Operation>
 </Patch>

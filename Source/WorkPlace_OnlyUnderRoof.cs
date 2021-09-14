@@ -1,22 +1,15 @@
 using Verse;
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CeilingUtilities
 {
 	public class PlaceWorker_OnlyUnderRoof : PlaceWorker
 	{
-		public override AcceptanceReport AllowsPlacing(BuildableDef checkingDef, IntVec3 loc, Rot4 rot, Map map, Thing thingToIgnore = null, Thing thing = null)
+		public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 loc, Rot4 rot, Map map, Thing thingToIgnore = null, Thing thing = null)
 		{
-			var cellsToCheck = new List<IntVec3>();
-			cellsToCheck.Add(loc);
-
-			//Just hardcoded for the long lights right now. This should be improved to be smarter, when time allows. Maybe use GenAdj.CellsOccupiedBy()?
-			if ( checkingDef.Size.x == 2)
-			{
-				IntVec3 loc2 = loc + IntVec3.East.RotatedBy(rot);
-				cellsToCheck.Add(loc2);
-			}
+			var cellsToCheck = GenAdj.OccupiedRect(loc, rot, def.Size).ToList();
 
 			foreach (IntVec3 cell in cellsToCheck)
 			{

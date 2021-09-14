@@ -108,6 +108,78 @@
 		<rotatable>true</rotatable>
 	</ThingDef>
 	
+	<ThingDef ParentName="CeilingLightBase">
+		<defName>Owl_Chandelier</defName>
+		<label>chandelier</label>
+		<description>...</description>
+		<graphicData>
+			<texPath>Things/Building/Furniture/Owl_Chandelier</texPath>
+			<color>(1,1,1,0.35)</color>
+            <shaderType>Transparent</shaderType>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<size>(2,2)</size>
+		<tickerType>Normal</tickerType>
+		<costList>
+			<WoodLog>80</WoodLog>
+			<Steel>30</Steel>
+		</costList>
+		<statBases>
+			<Mass>12</Mass>
+			<WorkToBuild>3000</WorkToBuild>
+		</statBases>
+		<comps Inherit="False">
+			<li Class="CeilingUtilities.CompProperties_FireOverlayMulti">
+				<offsets>
+					<li>(0.85,0,0.2)</li>
+					<li>(-0.85,0,0.2)</li>
+					<li>(0,0,1)</li>
+					<li>(0,0,-0.6)</li>
+				</offsets>
+				<fireSize>0.4</fireSize>
+			</li>
+			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.CompProperties_Offsetter">
+				<offsets>
+					<li>(0.5, 0, 0.5)</li>
+					<li>(0, 0, 0.5)</li>
+					<li>(-0.5, 0, 0.5)</li>
+					<li>(0.5, 0, 0)</li>
+					<li>(-0.5, 0, 0)</li>
+					<li>(0.5, 0, -0.5)</li>
+					<li>(0, 0, -0.5)</li>
+					<li>(-0.5, 0, -0.5)</li>
+				</offsets>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>12</glowRadius>
+				<glowColor>(252,187,113,0)</glowColor>
+			</li>
+			<li Class="CompProperties_HeatPusher">
+				<compClass>CompHeatPusherPowered</compClass>
+				<heatPerSecond>4.5</heatPerSecond>
+				<heatPushMaxTemperature>23</heatPushMaxTemperature>
+			</li>
+			<li Class="CompProperties_Refuelable">
+				<fuelConsumptionRate>2.5</fuelConsumptionRate>
+				<fuelCapacity>25.0</fuelCapacity>
+				<fuelConsumptionPerTickInRain>0.0006</fuelConsumptionPerTickInRain>
+				<fuelFilter>
+					<thingDefs>
+						<li>WoodLog</li>
+					</thingDefs>
+				</fuelFilter>
+				<initialFuelPercent>1</initialFuelPercent>
+				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+			</li>
+		</comps>
+		<modExtensions>
+			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Mirror" />
+		</modExtensions>
+		<researchPrerequisites Inherit="False">
+			<li>ComplexFurniture</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
 	<ThingDef ParentName="FirefoamPopperBase">
 		<defName>Owl_CeilingFirefoamPopper</defName>
 		<label>mounted firefoam popper</label>
