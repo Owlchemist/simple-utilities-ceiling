@@ -2,6 +2,9 @@ using System;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using System.Linq;
+using System.Reflection;
+using HarmonyLib;
 
 namespace CeilingUtilities
 {
@@ -25,7 +28,7 @@ namespace CeilingUtilities
 				Log.ErrorOnce("Graphic_FlickerMulti has no subgraphics " + thingDef, 358773632);
 				return;
 			}
-			var comp = thing.TryGetComp<CompFireOverlayMulti>();
+			var comp = thing.TryGetComp<CompFireOverlayMulti>(); //todo: this is laggy, cache it or something...
 
 			if (Find.TickManager.TicksGame % 20 == 0) comp.frame++;
 			if (comp.frame >= this.subGraphics.Length) comp.frame = 0;
@@ -42,7 +45,7 @@ namespace CeilingUtilities
 
 				Vector3 a = GenRadial.RadialPattern[(Find.TickManager.TicksGame % 20) % GenRadial.RadialPattern.Length].ToVector3() / GenRadial.MaxRadialPatternRadius;
 				a *= 0.05f;
-				Vector3 vector = (thing.TrueCenter() + a * num4) + comp.Props.offsets[i];
+				Vector3 vector = (loc + a * num4) + comp.Props.offsets[i];
 
 				Matrix4x4 matrix = default(Matrix4x4);
 				matrix.SetTRS(vector, Quaternion.identity, s);

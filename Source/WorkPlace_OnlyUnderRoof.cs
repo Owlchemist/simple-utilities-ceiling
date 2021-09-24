@@ -28,7 +28,7 @@ namespace CeilingUtilities
 
 		private static bool Filter(ThingDef def)
 		{
-			if (def.altitudeLayer == AltitudeLayer.MoteOverhead || def.fillPercent == 1f || def.holdsRoof) return true;
+			if (def != null && (def.altitudeLayer == AltitudeLayer.MoteOverhead || def.fillPercent == 1f || def.holdsRoof)) return true;
 			return false;
 		}
 

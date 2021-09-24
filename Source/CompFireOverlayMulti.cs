@@ -37,10 +37,9 @@ namespace CeilingUtilities
 
 			Vector3 drawPos = this.parent.DrawPos;
 			drawPos.y += 0.04054054f;
-			FireGraphicMulti.Draw(drawPos, Rot4.North, this.parent, 0f);
+			ResourceBank.FireGraphicMulti.Draw(drawPos, Rot4.North, this.parent, 0f);
 		}
 
-		static readonly Graphic FireGraphicMulti = GraphicDatabase.Get<Graphic_FlickerMulti>("Things/OwlSpecial/FireTranparent", ShaderDatabase.TransparentPostLight, Vector2.one, Color.white);
 		public int frame = 0;
 	}
 }

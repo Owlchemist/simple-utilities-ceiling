@@ -46,13 +46,7 @@
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompFireOverlayMulti.cs" />
-    <Compile Include="DefModExtension_CeilingFixtures.cs" />
-    <Compile Include="Graphic_FlickerMulti.cs" />
-    <Compile Include="Mod_CeilingUtilities.cs" />
-    <Compile Include="Patch_DoPlaySettingsGlobalControls.cs" />
-    <Compile Include="Patch_PrintWirePieceConnecting.cs" />
-    <Compile Include="WorkPlace_OnlyUnderRoof.cs" />
+    <Compile Include="*.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
