@@ -41,6 +41,9 @@
 		</comps>
 		<modExtensions>
 			<li Class="CeilingUtilities.CeilingFixture" />
+			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Offsetter">
+				<mirror>False</mirror>
+			</li>
 		</modExtensions>
 		<pathCost />
 	</ThingDef>
@@ -67,6 +70,22 @@
 				<glowColor>(217,217,208,0)</glowColor>
 			</li>
 		</comps>
+		<modExtensions Inherit="False">
+			<li Class="CeilingUtilities.CeilingFixture" />
+			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Offsetter">
+				<mirror>False</mirror>
+				<offsets>
+					<li>(0.5, 0, 0.5)</li>
+					<li>(0, 0, 0.5)</li>
+					<li>(-0.5, 0, 0.5)</li>
+					<li>(0.5, 0, 0)</li>
+					<li>(-0.5, 0, 0)</li>
+					<li>(0.5, 0, -0.5)</li>
+					<li>(0, 0, -0.5)</li>
+					<li>(-0.5, 0, -0.5)</li>
+				</offsets>
+			</li>
+		</modExtensions>
 	</ThingDef>
 	
 	<ThingDef ParentName="CeilingLightBase">
@@ -128,6 +147,7 @@
 			<Mass>12</Mass>
 			<WorkToBuild>3000</WorkToBuild>
 		</statBases>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
 		<comps Inherit="False">
 			<li Class="CeilingUtilities.CompProperties_FireOverlayMulti">
 				<offsets>
@@ -137,18 +157,6 @@
 					<li>(0,0,-0.6)</li>
 				</offsets>
 				<fireSize>0.4</fireSize>
-			</li>
-			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.CompProperties_Offsetter">
-				<offsets>
-					<li>(0.5, 0, 0.5)</li>
-					<li>(0, 0, 0.5)</li>
-					<li>(-0.5, 0, 0.5)</li>
-					<li>(0.5, 0, 0)</li>
-					<li>(-0.5, 0, 0)</li>
-					<li>(0.5, 0, -0.5)</li>
-					<li>(0, 0, -0.5)</li>
-					<li>(-0.5, 0, -0.5)</li>
-				</offsets>
 			</li>
 			<li Class="CompProperties_Glower">
 				<glowRadius>12</glowRadius>
@@ -172,8 +180,21 @@
 				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
 			</li>
 		</comps>
-		<modExtensions>
-			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Mirror" />
+		<modExtensions Inherit="False">
+			<li Class="CeilingUtilities.CeilingFixture" />
+			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Offsetter">
+				<mirror>False</mirror>
+				<offsets>
+					<li>(0.5, 0, 0.5)</li>
+					<li>(0, 0, 0.5)</li>
+					<li>(-0.5, 0, 0.5)</li>
+					<li>(0.5, 0, 0)</li>
+					<li>(-0.5, 0, 0)</li>
+					<li>(0.5, 0, -0.5)</li>
+					<li>(0, 0, -0.5)</li>
+					<li>(-0.5, 0, -0.5)</li>
+				</offsets>
+			</li>
 		</modExtensions>
 		<researchPrerequisites Inherit="False">
 			<li>ComplexFurniture</li>
@@ -209,6 +230,19 @@
 		<clearBuildingArea>false</clearBuildingArea>
 		<modExtensions>
 			<li Class="CeilingUtilities.CeilingFixture" />
+			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Offsetter">
+				<mirror>False</mirror>
+				<offsets>
+					<li>(0.5, 0, 0.5)</li>
+					<li>(0, 0, 0.5)</li>
+					<li>(-0.5, 0, 0.5)</li>
+					<li>(0.5, 0, 0)</li>
+					<li>(-0.5, 0, 0)</li>
+					<li>(0.5, 0, -0.5)</li>
+					<li>(0, 0, -0.5)</li>
+					<li>(-0.5, 0, -0.5)</li>
+				</offsets>
+			</li>
 		</modExtensions>
 	</ThingDef>
 	
@@ -254,6 +288,19 @@
 		</comps>
 		<modExtensions>
 			<li Class="CeilingUtilities.CeilingFixture" />
+			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Offsetter">
+				<mirror>False</mirror>
+				<offsets>
+					<li>(0.5, 0, 0.5)</li>
+					<li>(0, 0, 0.5)</li>
+					<li>(-0.5, 0, 0.5)</li>
+					<li>(0.5, 0, 0)</li>
+					<li>(-0.5, 0, 0)</li>
+					<li>(0.5, 0, -0.5)</li>
+					<li>(0, 0, -0.5)</li>
+					<li>(-0.5, 0, -0.5)</li>
+				</offsets>
+			</li>
 		</modExtensions>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<pathCost />

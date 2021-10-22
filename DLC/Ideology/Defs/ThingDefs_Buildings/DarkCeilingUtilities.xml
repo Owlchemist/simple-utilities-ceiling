@@ -19,5 +19,21 @@
 				</randomGraphics>
 			</li>
 		</comps>
+		<modExtensions Inherit="False">
+			<li Class="CeilingUtilities.CeilingFixture" />
+			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Offsetter">
+				<mirror>False</mirror>
+				<offsets>
+					<li>(0.5, 0, 0.5)</li>
+					<li>(0, 0, 0.5)</li>
+					<li>(-0.5, 0, 0.5)</li>
+					<li>(0.5, 0, 0)</li>
+					<li>(-0.5, 0, 0)</li>
+					<li>(0.5, 0, -0.5)</li>
+					<li>(0, 0, -0.5)</li>
+					<li>(-0.5, 0, -0.5)</li>
+				</offsets>
+			</li>
+		</modExtensions>
 	</ThingDef>
 </Defs>

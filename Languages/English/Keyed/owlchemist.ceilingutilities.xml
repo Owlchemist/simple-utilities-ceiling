@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 	<Owl_ToggleFixtures>Toggle ceiling fixtures.</Owl_ToggleFixtures>
+	<Utilities_useDrawFixturesToggle>Show visibility toggle button</Utilities_useDrawFixturesToggle>
 </LanguageData>
