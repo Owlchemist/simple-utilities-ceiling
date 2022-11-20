@@ -1,6 +1,8 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using Verse;
 using static CeilingUtilities.ModSettings_CeilingUtilities;
+using static CeilingUtilities.CeilingUtilitiesUtility;
 
 namespace CeilingUtilities
 {
@@ -12,18 +14,32 @@ namespace CeilingUtilities
 
 		public override void DrawWorker(Vector3 loc, Rot4 rot, ThingDef thingDef, Thing thing, float extraRotation)
 		{
-			if (!drawFixtures || thingDef == null || this.subGraphics == null) return;
+			if (!drawFixtures || thingDef == null || this.subGraphics == null || !fireCache.TryGetValue(thing, out CompFireOverlayMulti comp)) return;
 
-			CompFireOverlayMulti comp = thing.TryGetComp<CompFireOverlayMulti>();
-			if (comp == null) return;
+			if (updateNow && ++comp.frame == base.subGraphics.Length) comp.frame = 0;
 
-			if (Find.TickManager.TicksGame % 20 == 0 && ++comp.frame == base.subGraphics.Length) comp.frame = 0;
-
-			for (int i = 0; i < comp.numOfOffsets; i++)
+			for (int i = 0; i < comp.matrices.Length; ++i)
 			{
-				comp.matrix[i].m03 = loc.x + comp.Props.offsets[i].x;
-				comp.matrix[i].m23 = loc.z + comp.Props.offsets[i].z;
-				Graphics.DrawMesh(MeshPool.plane10, comp.matrix[i], this.subGraphics[(comp.frame + i) % 3].MatSingle, 0);
+				Matrix4x4 matrix = comp.matrices[i];
+				Vector3 vector = ((CompProperties_FireOverlayMulti)comp.props).offsets[i];
+				matrix.m03 = loc.x + vector.x;
+				matrix.m23 = loc.z + vector.z;
+
+				Graphics.Internal_DrawMesh_Injected
+				(
+					MeshPool.plane10, //Mesh
+					0, //SubMeshIndex
+					ref matrix, //Matrix
+					((Graphic_Single)this.subGraphics[(comp.frame + i) % 3]).mat, //Material
+					0, //Layer
+					null, //Camera
+					null, //MaterialPropertiesBlock
+					ShadowCastingMode.Off, //castShadows
+					false, //recieveShadows
+					null, //probeAnchor
+					LightProbeUsage.Off, //LightProbeUseage
+					null //LightProbeProxyVolume
+				);
 			}
 		}
 	}

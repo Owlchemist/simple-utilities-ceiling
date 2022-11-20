@@ -8,7 +8,14 @@
 				<value>FirefoamPopperBase</value>
 			</li>
 			<li Class="PatchOperationAttributeSet">
-				<xpath>Defs/ThingDef[defName="SunLamp"]</xpath>
+				<success>Always</success>
+				<xpath>Defs[not(ThingDef[defName="PermaSunLamp"])]/ThingDef[defName="SunLamp"]</xpath>
+				<attribute>Name</attribute>
+				<value>SunLampBase</value>
+			</li>
+			<li MayRequire="zlj.staticqualityplus" Class="PatchOperationAttributeSet">
+				<success>Always</success>
+				<xpath>Defs/ThingDef[defName="PermaSunLamp"]</xpath>
 				<attribute>Name</attribute>
 				<value>SunLampBase</value>
 			</li>

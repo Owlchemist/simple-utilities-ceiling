@@ -1,7 +1,6 @@
 using HarmonyLib;
 using Verse;
 using UnityEngine;
-using System.Collections.Generic;
 using static CeilingUtilities.ModSettings_CeilingUtilities;
 
 namespace CeilingUtilities
@@ -32,8 +31,6 @@ namespace CeilingUtilities
 		{
 			base.WriteSettings();
 		}
-
-		public static List<ThingDef> ceilingFixtures = new List<ThingDef>();
     }
 
 	public class ModSettings_CeilingUtilities : ModSettings

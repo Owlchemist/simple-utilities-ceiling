@@ -7,130 +7,49 @@
 		<defName>FirefoamPoppers</defName> 
 	</DesignatorDropdownGroupDef>
 	
-	<ThingDef Name="CeilingLightBase" ParentName="StandingLampBase" Abstract="True">
-		<passability>Standable</passability>
-		<clearBuildingArea>false</clearBuildingArea>
-		<altitudeLayer>MoteOverhead</altitudeLayer>
-		<drawerType>RealtimeOnly</drawerType>
-		<costList>
+	<ThingDef MayRequire="ludeon.rimworld.royalty" ParentName="CeilingLightBase" >
+		<defName>Owl_GloomCeilingLight</defName>
+		<label>mounted gloomlight</label>
+		<description>A self-powered mechanoid node of unknown function. Mech nodes can be deconstructed to yield valuable resources - but only if they are captured intact. The internal micro power cell will flame out and ruin the materials if the unit takes too much damage. This unit has been carefully repurposed into a ceiling fixture, and cannot be salvaged via deconstruction.</description>
+		<graphicData>
+			<texPath>Things/Building/Furniture/GloomCeilingLight</texPath>
+			<color>(1,1,1,0.25)</color>
+			<shaderType>Transparent</shaderType>
+		</graphicData>
+		<comps Inherit="False">
+			<li Class="CompProperties_Glower">
+				<glowRadius>3</glowRadius>
+				<glowColor>(216,219,67,0)</glowColor>
+			</li>
+		</comps>
+		<specialDisplayRadius>1</specialDisplayRadius>
+		<costList Inherit="False">
+			<Owl_GloomlightMinified>1</Owl_GloomlightMinified>
 			<Steel>20</Steel>
 		</costList>
 		<statBases>
-			<Mass>4</Mass>
-			<WorkToBuild>600</WorkToBuild>
+			<Mass>10</Mass>
+			<Beauty>-20</Beauty>
 		</statBases>
-		<fillPercent>0</fillPercent>
-		<building>
-			<isEdifice>false</isEdifice>
-			<isInert>true</isInert>
-            <ai_chillDestination>false</ai_chillDestination>
-		</building>
-		<minifiedDef />
-		<thingCategories Inherit="False" />
-		<designatorDropdown>CeilingFixtures</designatorDropdown>
-		<placeWorkers>
-			<li>CeilingUtilities.PlaceWorker_OnlyUnderRoof</li>
-		</placeWorkers>
-		<comps Inherit="False">
-			<li Class="CompProperties_Power">
-				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>30</basePowerConsumption>
-			</li>
-			<li Class="CompProperties_Styleable" />
-			<li Class="CompProperties_Flickable"/>
-		</comps>
-		<modExtensions>
-			<li Class="CeilingUtilities.CeilingFixture" />
-			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Offsetter">
-				<mirror>False</mirror>
-			</li>
-		</modExtensions>
-		<pathCost />
-	</ThingDef>
-	
-	<ThingDef ParentName="CeilingLightBase">
-		<defName>Owl_CeilingLight</defName>
-		<label>ceiling light</label>
-		<description>An electrical standing lamp that lights an area. People need light to move and work at full speed.</description>
-		<graphicData>
-			<texPath>Things/Building/Furniture/CeilingLight</texPath>
-			<color>(1,1,1,0.35)</color>
-            <shaderType>Transparent</shaderType>
-		</graphicData>
-		<comps>
-			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VanillaFurnitureExpanded.CompProperties_RandomBuildingGraphic">
-				<randomGraphics>
-					<li>Things/Building/Furniture/CeilingLight</li>
-					<li>Things/Building/Furniture/Techist_CeilingLight</li>
-					<li>Things/Building/Furniture/Square_CeilingLight</li>
-				</randomGraphics>
-			</li>
-			<li Class="CompProperties_Glower">
-				<glowRadius>12</glowRadius>
-				<glowColor>(217,217,208,0)</glowColor>
-			</li>
-		</comps>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+		<researchPrerequisites Inherit="False" />
 		<modExtensions Inherit="False">
 			<li Class="CeilingUtilities.CeilingFixture" />
 			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Offsetter">
 				<mirror>False</mirror>
+				<offsetType>Eight</offsetType>
 				<offsets>
 					<li>(0.5, 0, 0.5)</li>
-					<li>(0, 0, 0.5)</li>
-					<li>(-0.5, 0, 0.5)</li>
-					<li>(0.5, 0, 0)</li>
-					<li>(-0.5, 0, 0)</li>
-					<li>(0.5, 0, -0.5)</li>
-					<li>(0, 0, -0.5)</li>
-					<li>(-0.5, 0, -0.5)</li>
 				</offsets>
 			</li>
 		</modExtensions>
 	</ThingDef>
 	
 	<ThingDef ParentName="CeilingLightBase">
-		<defName>Owl_LongCeilingLight</defName>
-		<label>long ceiling light</label>
-		<description>An electrical standing lamp that lights an area. People need light to move and work at full speed.</description>
-		<graphicData>
-			<texPath>Things/Building/Furniture/Double_CeilingLight</texPath>
-			<color>(1,1,1,0.35)</color>
-            <shaderType>Transparent</shaderType>
-			<drawSize>(2,1)</drawSize>
-		</graphicData>
-		<costList>
-			<Steel>40</Steel>
-		</costList>
-		<statBases>
-			<Mass>8</Mass>
-			<WorkToBuild>1200</WorkToBuild>
-		</statBases>
-		<comps Inherit="False">
-			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VanillaFurnitureExpanded.CompProperties_RandomBuildingGraphic">
-				<randomGraphics>
-					<li>Things/Building/Furniture/Double_CeilingLight</li>
-					<li>Things/Building/Furniture/Techist_Double_CeilingLight</li>
-					<li>Things/Building/Furniture/Twin_CeilingLight</li>
-				</randomGraphics>
-			</li>
-			<li Class="CompProperties_Glower">
-				<glowRadius>18</glowRadius>
-				<glowColor>(217,217,208,0)</glowColor>
-			</li>
-			<li Class="CompProperties_Power">
-				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>40</basePowerConsumption>
-			</li>
-			<li Class="CompProperties_Flickable"/>
-		</comps>
-		<size>(2,1)</size>
-		<rotatable>true</rotatable>
-	</ThingDef>
-	
-	<ThingDef ParentName="CeilingLightBase">
 		<defName>Owl_Chandelier</defName>
 		<label>chandelier</label>
-		<description>...</description>
+		<description>A ceiling mounted chandelier with four torches on each side.</description>
 		<graphicData>
 			<texPath>Things/Building/Furniture/Owl_Chandelier</texPath>
 			<color>(1,1,1,0.35)</color>
@@ -144,6 +63,7 @@
 			<Steel>30</Steel>
 		</costList>
 		<statBases>
+			<Beauty>4</Beauty>
 			<Mass>12</Mass>
 			<WorkToBuild>3000</WorkToBuild>
 		</statBases>
@@ -180,25 +100,152 @@
 				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
 			</li>
 		</comps>
+		<specialDisplayRadius>9</specialDisplayRadius>
 		<modExtensions Inherit="False">
 			<li Class="CeilingUtilities.CeilingFixture" />
 			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Offsetter">
 				<mirror>False</mirror>
+				<offsetType>Eight</offsetType>
 				<offsets>
 					<li>(0.5, 0, 0.5)</li>
-					<li>(0, 0, 0.5)</li>
-					<li>(-0.5, 0, 0.5)</li>
-					<li>(0.5, 0, 0)</li>
-					<li>(-0.5, 0, 0)</li>
-					<li>(0.5, 0, -0.5)</li>
-					<li>(0, 0, -0.5)</li>
-					<li>(-0.5, 0, -0.5)</li>
 				</offsets>
 			</li>
 		</modExtensions>
 		<researchPrerequisites Inherit="False">
 			<li>ComplexFurniture</li>
 		</researchPrerequisites>
+	</ThingDef>
+	
+	<ThingDef Name="CeilingLightBase" ParentName="StandingLampBase" Abstract="True">
+		<passability>Standable</passability>
+		<clearBuildingArea>false</clearBuildingArea>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<drawerType>MapMeshOnly</drawerType>
+		<costList>
+			<Steel>20</Steel>
+		</costList>
+		<statBases>
+			<Mass>4</Mass>
+			<WorkToBuild>600</WorkToBuild>
+		</statBases>
+		<fillPercent>0</fillPercent>
+		<building>
+			<isEdifice>false</isEdifice>
+			<isInert>true</isInert>
+            <ai_chillDestination>false</ai_chillDestination>
+		</building>
+		<minifiedDef />
+		<thingCategories Inherit="False" />
+		<designatorDropdown>CeilingFixtures</designatorDropdown>
+		<placeWorkers>
+			<li>CeilingUtilities.PlaceWorker_OnlyUnderRoof</li>
+		</placeWorkers>
+		<comps Inherit="False">
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>30</basePowerConsumption>
+				<powerUpgrades>
+					<li>
+						<researchProject>ColoredLights</researchProject>
+						<factor>0.5</factor>
+					</li>
+				</powerUpgrades>
+			</li>
+			<li Class="CompProperties_Styleable" />
+			<li Class="CompProperties_Flickable"/>
+		</comps>
+		<modExtensions>
+			<li Class="CeilingUtilities.CeilingFixture" />
+			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Offsetter">
+				<mirror>False</mirror>
+			</li>
+		</modExtensions>
+		<pathCost />
+	</ThingDef>
+	
+	<ThingDef ParentName="CeilingLightBase">
+		<defName>Owl_CeilingLight</defName>
+		<label>ceiling light</label>
+		<description>An electrical standing lamp that lights an area. People need light to move and work at full speed.</description>
+		<graphicData>
+			<texPath>Things/Building/Furniture/CeilingLight</texPath>
+			<color>(1,1,1,0.35)</color>
+			<shaderType>Transparent</shaderType>
+		</graphicData>
+		<comps>
+			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VanillaFurnitureExpanded.CompProperties_RandomBuildingGraphic">
+				<randomGraphics>
+					<li>Things/Building/Furniture/CeilingLight</li>
+					<li>Things/Building/Furniture/Techist_CeilingLight</li>
+					<li>Things/Building/Furniture/Square_CeilingLight</li>
+				</randomGraphics>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>12</glowRadius>
+				<glowColor>(217,217,208,0)</glowColor>
+				<colorPickerEnabled>true</colorPickerEnabled>
+				<darklightToggle>true</darklightToggle>
+			</li>
+		</comps>
+		<specialDisplayRadius>9</specialDisplayRadius>
+		<modExtensions Inherit="False">
+			<li Class="CeilingUtilities.CeilingFixture" />
+			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Offsetter">
+				<mirror>False</mirror>
+				<offsetType>Eight</offsetType>
+				<offsets>
+					<li>(0.5, 0, 0.5)</li>
+				</offsets>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="CeilingLightBase">
+		<defName>Owl_LongCeilingLight</defName>
+		<label>long ceiling light</label>
+		<description>An electrical standing lamp that lights an area. People need light to move and work at full speed.</description>
+		<graphicData>
+			<texPath>Things/Building/Furniture/Double_CeilingLight</texPath>
+			<color>(1,1,1,0.35)</color>
+            <shaderType>Transparent</shaderType>
+			<drawSize>(2,1)</drawSize>
+		</graphicData>
+		<costList>
+			<Steel>40</Steel>
+		</costList>
+		<statBases>
+			<Mass>8</Mass>
+			<WorkToBuild>1200</WorkToBuild>
+		</statBases>
+		<comps Inherit="False">
+			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VanillaFurnitureExpanded.CompProperties_RandomBuildingGraphic">
+				<randomGraphics>
+					<li>Things/Building/Furniture/Double_CeilingLight</li>
+					<li>Things/Building/Furniture/Techist_Double_CeilingLight</li>
+					<li>Things/Building/Furniture/Twin_CeilingLight</li>
+				</randomGraphics>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>15</glowRadius>
+				<glowColor>(217,217,208,0)</glowColor>
+				<colorPickerEnabled>true</colorPickerEnabled>
+				<darklightToggle>true</darklightToggle>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>40</basePowerConsumption>
+				<powerUpgrades>
+					<li>
+						<researchProject>ColoredLights</researchProject>
+						<factor>0.5</factor>
+					</li>
+				</powerUpgrades>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+		</comps>
+		<specialDisplayRadius>11</specialDisplayRadius>
+		<size>(2,1)</size>
+		<rotatable>true</rotatable>
 	</ThingDef>
 	
 	<ThingDef ParentName="FirefoamPopperBase">
@@ -211,7 +258,7 @@
             <shaderType>Transparent</shaderType>
 		</graphicData>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
-		<drawerType>RealtimeOnly</drawerType>
+		<drawerType>MapMeshOnly</drawerType>
 		<minifiedDef />
 		<statBases>
 			<WorkToBuild>2500</WorkToBuild>
@@ -228,19 +275,14 @@
 			<li>CeilingUtilities.PlaceWorker_OnlyUnderRoof</li>
 		</placeWorkers>
 		<clearBuildingArea>false</clearBuildingArea>
+		<canOverlapZones>true</canOverlapZones>
 		<modExtensions>
 			<li Class="CeilingUtilities.CeilingFixture" />
 			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Offsetter">
 				<mirror>False</mirror>
+				<offsetType>Eight</offsetType>
 				<offsets>
 					<li>(0.5, 0, 0.5)</li>
-					<li>(0, 0, 0.5)</li>
-					<li>(-0.5, 0, 0.5)</li>
-					<li>(0.5, 0, 0)</li>
-					<li>(-0.5, 0, 0)</li>
-					<li>(0.5, 0, -0.5)</li>
-					<li>(0, 0, -0.5)</li>
-					<li>(-0.5, 0, -0.5)</li>
 				</offsets>
 			</li>
 		</modExtensions>
@@ -254,51 +296,25 @@
 			<color>(1,1,1,0.5)</color>
 			<shaderType>Transparent</shaderType>
 		</graphicData>
-		<drawerType>RealtimeOnly</drawerType>
+		<drawerType>MapMeshOnly</drawerType>
 		<statBases>
 			<WorkToBuild>700</WorkToBuild>
 		</statBases>
-		<comps Inherit="False">
+		<comps>
 			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VanillaFurnitureExpanded.CompProperties_RandomBuildingGraphic">
 				<randomGraphics>
 					<li>Things/Building/Production/CeilingSunLamp</li>
 					<li>Things/Building/Production/Square_CeilingSunLamp</li>
 				</randomGraphics>
 			</li>
-			<li Class="CompProperties_Glower">
-				<overlightRadius>7.0</overlightRadius>
-				<glowRadius>14</glowRadius>
-				<glowColor>(370,370,370,0)</glowColor>
-			</li>
-			<li Class="CompProperties_Power">
-				<compClass>CompPowerTrader</compClass>
-				<shortCircuitInRain>true</shortCircuitInRain>
-				<basePowerConsumption>2900</basePowerConsumption>
-			</li>
-			<li Class="CompProperties_Schedule">
-				<startTime>0.25</startTime>
-				<endTime>0.8</endTime>
-				<offMessage>Off for plant resting period</offMessage>
-			</li>
-			<li Class="CompProperties_HeatPusher">
-				<compClass>CompHeatPusherPowered</compClass>
-				<heatPerSecond>3</heatPerSecond>
-			</li>
-			<li Class="CompProperties_Flickable"/>
 		</comps>
 		<modExtensions>
 			<li Class="CeilingUtilities.CeilingFixture" />
 			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Offsetter">
 				<mirror>False</mirror>
+				<offsetType>Eight</offsetType>
 				<offsets>
 					<li>(0.5, 0, 0.5)</li>
-					<li>(0, 0, 0.5)</li>
-					<li>(-0.5, 0, 0.5)</li>
-					<li>(0.5, 0, 0)</li>
-					<li>(-0.5, 0, 0)</li>
-					<li>(0.5, 0, -0.5)</li>
-					<li>(0, 0, -0.5)</li>
-					<li>(-0.5, 0, -0.5)</li>
 				</offsets>
 			</li>
 		</modExtensions>
@@ -318,5 +334,35 @@
 		</placeWorkers>
 		<clearBuildingArea>false</clearBuildingArea>
 		<fillPercent>0</fillPercent>
+	</ThingDef>
+	
+	<ThingDef MayRequire="ludeon.rimworld.royalty">
+		<defName>Owl_GloomlightMinified</defName>
+		<label>gloomlight</label>
+		<thingClass>MinifiedThing</thingClass>
+		<category>Item</category>
+		<useHitPoints>true</useHitPoints>
+		<selectable>true</selectable>
+		<altitudeLayer>Item</altitudeLayer>
+		<scatterableOnMapGen>false</scatterableOnMapGen>
+		<tickerType>Normal</tickerType>
+		<comps>
+			<li Class="CompProperties_Forbiddable"/>
+			<li Class="CompProperties_Glower">
+				<glowRadius>3</glowRadius>
+				<glowColor>(216,219,67,0)</glowColor>
+			</li>
+		</comps>
+		<inspectorTabs>
+			<li>ITab_Art</li>
+		</inspectorTabs>
+		<alwaysHaulable>true</alwaysHaulable>
+		<rotatable>false</rotatable>
+		<pathCost>14</pathCost>
+		<statBases>
+			<Mass>9</Mass>
+			<Beauty>-20</Beauty>
+		</statBases>
+		<uiIconPath>Things/Building/Mech/Gloomlight</uiIconPath>
 	</ThingDef>
 </Defs>
