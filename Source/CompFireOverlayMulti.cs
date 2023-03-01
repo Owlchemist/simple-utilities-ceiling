@@ -38,14 +38,14 @@ namespace CeilingUtilities
 		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
 			base.PostSpawnSetup(respawningAfterLoad);
-			fireCache.Add(this.parent, this);
+			fireCache.AddDistinct(this.parent.thingIDNumber, this);
 			matrices = new Matrix4x4[Props.offsets.Count];
 			SetupMatrices();
 		}
 
 		public override void PostDeSpawn(Map map)
 		{
-			fireCache.Remove(this.parent);
+			fireCache.Remove(this.parent.thingIDNumber);
 			base.PostDeSpawn(map);
 		}
 

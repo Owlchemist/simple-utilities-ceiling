@@ -9,7 +9,7 @@ namespace CeilingUtilities
 	public static class CeilingUtilitiesUtility
     {
 		public static ThingDef[] ceilingFixtures;
-		public static Dictionary<Thing, CompFireOverlayMulti> fireCache = new Dictionary<Thing, CompFireOverlayMulti>();
+		public static Dictionary<int, CompFireOverlayMulti> fireCache = new Dictionary<int, CompFireOverlayMulti>();
 		public static bool updateNow;
         static CeilingUtilitiesUtility()
         {

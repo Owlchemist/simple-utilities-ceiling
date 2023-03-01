@@ -179,6 +179,8 @@
 					<li>Things/Building/Furniture/Techist_CeilingLight</li>
 					<li>Things/Building/Furniture/Square_CeilingLight</li>
 				</randomGraphics>
+				<startAsRandom>false</startAsRandom>
+				<disableRandomButton>true</disableRandomButton>
 			</li>
 			<li Class="CompProperties_Glower">
 				<glowRadius>12</glowRadius>
@@ -224,6 +226,8 @@
 					<li>Things/Building/Furniture/Techist_Double_CeilingLight</li>
 					<li>Things/Building/Furniture/Twin_CeilingLight</li>
 				</randomGraphics>
+				<startAsRandom>false</startAsRandom>
+				<disableRandomButton>true</disableRandomButton>
 			</li>
 			<li Class="CompProperties_Glower">
 				<glowRadius>15</glowRadius>
@@ -266,6 +270,7 @@
 		<pathCost />
 		<passability>Standable</passability>
 		<thingCategories Inherit="False" />
+		<fillPercent>0</fillPercent>
 		<building>
 			<isEdifice>false</isEdifice>
 			<isInert>true</isInert>
@@ -306,6 +311,8 @@
 					<li>Things/Building/Production/CeilingSunLamp</li>
 					<li>Things/Building/Production/Square_CeilingSunLamp</li>
 				</randomGraphics>
+				<startAsRandom>false</startAsRandom>
+				<disableRandomButton>true</disableRandomButton>
 			</li>
 		</comps>
 		<modExtensions>

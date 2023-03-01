@@ -14,7 +14,7 @@ namespace CeilingUtilities
 
 		public override void DrawWorker(Vector3 loc, Rot4 rot, ThingDef thingDef, Thing thing, float extraRotation)
 		{
-			if (!drawFixtures || thingDef == null || this.subGraphics == null || !fireCache.TryGetValue(thing, out CompFireOverlayMulti comp)) return;
+			if (!drawFixtures || thingDef == null || this.subGraphics == null || !fireCache.TryGetValue(thing.thingIDNumber, out CompFireOverlayMulti comp)) return;
 
 			if (updateNow && ++comp.frame == base.subGraphics.Length) comp.frame = 0;
 

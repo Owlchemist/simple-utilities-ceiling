@@ -11,17 +11,17 @@ namespace CeilingUtilities
 	[HarmonyPatch(typeof(PowerNetGraphics), nameof(PowerNetGraphics.PrintWirePieceConnecting))]
 	public class Patch_PrintWirePieceConnecting
 	{
-		public static bool Prefix(Thing A, Thing B)
+		public static bool Prefix(Thing A)
 		{
 			return !A.def.HasModExtension<CeilingFixture>();
 		}
     }
 
 	//Gets the graphics ready on game load
-	[HarmonyPatch(typeof(Thing), nameof(Thing.SpawnSetup))]
+	[HarmonyPatch(typeof(Building), nameof(Building.SpawnSetup))]
 	public class Patch_SpawnSetup
 	{
-		public static void Postfix(ref Thing __instance, Map map)
+		public static void Postfix(Thing __instance, Map map)
 		{
 			if (__instance.def.HasModExtension<CeilingFixture>())
 			{
@@ -33,13 +33,13 @@ namespace CeilingUtilities
     }
 
 	//Centralized ticket for the fire graphic, vs every comp running its own ticker
-	[HarmonyPatch(typeof(GameComponentUtility), nameof(GameComponentUtility.GameComponentTick))]
+	[HarmonyPatch(typeof(TickManager), nameof(TickManager.DoSingleTick))]
 	public class Patch_GameComponentTick
 	{
-		static int ticks;
+		static int ticks = 1;
 		public static void Postfix()
 		{
-			if (updateNow = ++ticks == 20) ticks = 0;
+			if (updateNow = --ticks == 0) ticks = 20;
 		}
     }
 

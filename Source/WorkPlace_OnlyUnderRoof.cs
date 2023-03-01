@@ -1,7 +1,5 @@
 using Verse;
 using RimWorld;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace CeilingUtilities
 {

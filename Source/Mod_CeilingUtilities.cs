@@ -37,12 +37,11 @@ namespace CeilingUtilities
 	{
 		public override void ExposeData()
 		{
-			Scribe_Values.Look<bool>(ref drawFixtures, "drawFixtures", true, false);
-			Scribe_Values.Look<bool>(ref useDrawFixturesToggle, "useDrawFixturesToggle", true, false);
+			Scribe_Values.Look(ref drawFixtures, "drawFixtures", true);
+			Scribe_Values.Look(ref useDrawFixturesToggle, "useDrawFixturesToggle", true);
 			base.ExposeData();
 		}
 
-		public static bool drawFixtures = true;
-		public static bool useDrawFixturesToggle = true;
+		public static bool drawFixtures = true, useDrawFixturesToggle = true;
 	}
 }
