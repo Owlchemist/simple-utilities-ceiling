@@ -2,4 +2,7 @@
 <LanguageData>
 	<Owl_ToggleFixtures>Toggle ceiling fixtures.</Owl_ToggleFixtures>
 	<Utilities_useDrawFixturesToggle>Show visibility toggle button</Utilities_useDrawFixturesToggle>
+	<WorkPlacer_NeedsRoof>Must be placed under a roof.</WorkPlacer_NeedsRoof>
+	<WorkPlacer_OverForbiddenThing>Cannot place over these types of things.</WorkPlacer_OverForbiddenThing>
+	<WorkPlacer_OverBlueprint>Cannot be placed over this type of blueprint.</WorkPlacer_OverBlueprint>
 </LanguageData>

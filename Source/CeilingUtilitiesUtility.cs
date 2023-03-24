@@ -1,4 +1,3 @@
-using System.Linq;
 using Verse;
 using System.Collections.Generic;
 
@@ -10,10 +9,16 @@ namespace CeilingUtilities
     {
 		public static ThingDef[] ceilingFixtures;
 		public static Dictionary<int, CompFireOverlayMulti> fireCache = new Dictionary<int, CompFireOverlayMulti>();
-		public static bool updateNow;
         static CeilingUtilitiesUtility()
         {
-            ceilingFixtures = DefDatabase<ThingDef>.AllDefsListForReading.Where(x => x.HasModExtension<CeilingFixture>()).ToArray();
+            var workingList = new List<ThingDef>();
+            var list = DefDatabase<ThingDef>.AllDefsListForReading;
+            for (int i = list.Count; i-- > 0;)
+            {
+                var def = list[i];
+                if (def.HasModExtension<CeilingFixture>()) workingList.Add(def);
+            }
+            ceilingFixtures = workingList.ToArray();
         }
     }
 }

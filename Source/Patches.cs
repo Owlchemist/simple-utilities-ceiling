@@ -19,9 +19,9 @@ namespace CeilingUtilities
 
 	//Gets the graphics ready on game load
 	[HarmonyPatch(typeof(Building), nameof(Building.SpawnSetup))]
-	public class Patch_SpawnSetup
+	class Patch_SpawnSetup
 	{
-		public static void Postfix(Thing __instance, Map map)
+		static void Postfix(Thing __instance, Map map)
 		{
 			if (__instance.def.HasModExtension<CeilingFixture>())
 			{
@@ -32,32 +32,21 @@ namespace CeilingUtilities
 		}
     }
 
-	//Centralized ticket for the fire graphic, vs every comp running its own ticker
-	[HarmonyPatch(typeof(TickManager), nameof(TickManager.DoSingleTick))]
-	public class Patch_GameComponentTick
-	{
-		static int ticks = 1;
-		public static void Postfix()
-		{
-			if (updateNow = --ticks == 0) ticks = 20;
-		}
-    }
-
 	//Visibility toggle
 	[HarmonyPatch(typeof(PlaySettings), nameof(PlaySettings.DoPlaySettingsGlobalControls))]
-	public class Patch_DoPlaySettingsGlobalControls
+	class Patch_DoPlaySettingsGlobalControls
 	{
         static bool lastVal = drawFixtures;
-		public static void Postfix(WidgetRow row, bool worldView)
+		static void Postfix(WidgetRow row, bool worldView)
 		{
 			if (!useDrawFixturesToggle || worldView) return;
 			
 			row.ToggleableIcon(ref drawFixtures, icon, label, SoundDefOf.Mouseover_ButtonToggle, null);
 			if (drawFixtures != lastVal)
 			{
-				foreach (var fixture in ceilingFixtures)
+				for (int i = ceilingFixtures.Length; i-- > 0;)
 				{
-					fixture.drawerType = drawFixtures? DrawerType.RealtimeOnly : DrawerType.None;
+					ceilingFixtures[i].drawerType = drawFixtures? DrawerType.RealtimeOnly : DrawerType.None;
 				}
                 lastVal = drawFixtures;
 				LoadedModManager.GetMod<Mod_CeilingUtilities>().WriteSettings();
