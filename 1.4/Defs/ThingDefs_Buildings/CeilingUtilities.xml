@@ -56,6 +56,7 @@
             <shaderType>Transparent</shaderType>
 			<drawSize>(2,2)</drawSize>
 		</graphicData>
+		<drawerType>RealtimeOnly</drawerType>
 		<size>(2,2)</size>
 		<tickerType>Normal</tickerType>
 		<costList>

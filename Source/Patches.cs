@@ -13,25 +13,10 @@ namespace CeilingUtilities
 	{
 		public static bool Prefix(Thing A)
 		{
-			return !A.def.HasModExtension<CeilingFixture>();
+			return !CeilingUtilitiesUtility.ceilingFixtureHashes.Contains(A.def.shortHash);
 		}
     }
-
-	//Gets the graphics ready on game load
-	[HarmonyPatch(typeof(Building), nameof(Building.SpawnSetup))]
-	class Patch_SpawnSetup
-	{
-		static void Postfix(Thing __instance, Map map)
-		{
-			if (__instance.def.HasModExtension<CeilingFixture>())
-			{
-				__instance.def.drawerType = DrawerType.RealtimeOnly;
-				map.dynamicDrawManager.RegisterDrawable(__instance);
-				__instance.def.drawerType = drawFixtures ? DrawerType.RealtimeOnly : DrawerType.None;
-			}
-		}
-    }
-
+	
 	//Visibility toggle
 	[HarmonyPatch(typeof(PlaySettings), nameof(PlaySettings.DoPlaySettingsGlobalControls))]
 	class Patch_DoPlaySettingsGlobalControls
@@ -46,8 +31,12 @@ namespace CeilingUtilities
 			{
 				for (int i = ceilingFixtures.Length; i-- > 0;)
 				{
-					ceilingFixtures[i].drawerType = drawFixtures? DrawerType.RealtimeOnly : DrawerType.None;
+					var def = ceilingFixtures[i];
+					def.drawerType = drawFixtures ? CeilingUtilitiesUtility.drawerTypeLedger.TryGetValue(def.shortHash, out DrawerType drawerType) ? drawerType : DrawerType.MapMeshOnly : DrawerType.None;
 				}
+
+				Find.CurrentMap.mapDrawer.WholeMapChanged(MapMeshFlag.Things | MapMeshFlag.Buildings);
+				
                 lastVal = drawFixtures;
 				LoadedModManager.GetMod<Mod_CeilingUtilities>().WriteSettings();
 			}
